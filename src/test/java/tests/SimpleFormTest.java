@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.*;
 
-public class simpleFormTest {
+public class SimpleFormTest extends TestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";

@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Condition.*;
 
 
-public class negativeFillFormTest {
+public class NegativeFillFormTest extends TestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
