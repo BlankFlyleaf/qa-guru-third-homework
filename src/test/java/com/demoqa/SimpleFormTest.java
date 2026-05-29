@@ -18,8 +18,6 @@ public class SimpleFormTest extends TestBase {
 
     @Test
     void simpleFillFormTest() {
-        open("/text-box");
-
         //Fill String value
         $("#userName").setValue(firstName + " " + lastName);
         $("#userEmail").setValue(email);
@@ -38,8 +36,6 @@ public class SimpleFormTest extends TestBase {
 
     @Test
     void withWrongtEmailSimpleTest() {
-        open("/text-box");
-
         //Fill String value
         $("#userName").setValue(firstName + " " + lastName);
         $("#userEmail").setValue(corruptedEmail);
