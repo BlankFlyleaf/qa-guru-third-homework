@@ -35,7 +35,7 @@ public class SimpleFormTest extends TestBase {
     }
 
     @Test
-    void withWrongtEmailSimpleTest() {
+    void withWrongEmailSimpleTest() {
         //Fill String value
         $("#userName").setValue(firstName + " " + lastName);
         $("#userEmail").setValue(corruptedEmail);
