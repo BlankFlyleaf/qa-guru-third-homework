@@ -1,4 +1,4 @@
-package testdata;
+package com.demoqa.testdata;
 
 public class TestData {
     public static String firstName = "Alexey";
