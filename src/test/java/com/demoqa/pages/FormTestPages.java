@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.ModalResultComponent;
 
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -73,7 +74,9 @@ public class FormTestPages {
         return this;
     }
     public FormTestPages clickHobbies(String value) {
-        hobbiesInput.$(byText(value)).click();
+        if (value != null) {
+            hobbiesInput.$(byText(value)).click();
+        }
 
         return this;
     }
@@ -114,15 +117,50 @@ public class FormTestPages {
 
 
     // valueOutput
-    public FormTestPages modalDialogApper(String value) {
+    public FormTestPages modalDialogApper() {
         ModalResultComponent modalResultComponent = new ModalResultComponent();
-        modalResultComponent.checkTitle(value);
+        modalResultComponent.checkTitle("Thanks for submitting the form");
 
         return this;
     }
     public FormTestPages outputBodyValueCheck(String name, String value) {
         ModalResultComponent modalResultComponent = new ModalResultComponent();
         modalResultComponent.checkValue(name, value);
+
+        return this;
+    }
+    public FormTestPages outputBodyHobbyCheck(String firstHobby, String secondHobby, String thirdHobby) {
+        String expectedValue = null;
+        ModalResultComponent modalResultComponent = new ModalResultComponent();
+
+        if (firstHobby != null && secondHobby != null && thirdHobby != null) {
+            expectedValue = firstHobby + ", " + secondHobby + ", " + thirdHobby;
+        }
+        else if (firstHobby != null && secondHobby != null) {
+            expectedValue = firstHobby + ", " + secondHobby;
+        }
+        else if (firstHobby != null && thirdHobby != null) {
+            expectedValue = firstHobby + ", " + thirdHobby;
+        }
+        else if (secondHobby != null && thirdHobby != null) {
+            expectedValue = secondHobby + ", " + thirdHobby;
+        }
+        else if (firstHobby != null) {
+            expectedValue = firstHobby;
+        }
+        else if (secondHobby != null) {
+            expectedValue = secondHobby;
+        }
+        else if (thirdHobby != null) {
+            expectedValue = thirdHobby;
+        }
+        else {
+            modalResultComponent.checkEmptyHobby();
+
+            return this;
+        }
+
+        modalResultComponent.checkValue("Hobbies", expectedValue);
 
         return this;
     }

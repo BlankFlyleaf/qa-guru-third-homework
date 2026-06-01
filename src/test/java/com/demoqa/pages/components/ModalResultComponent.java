@@ -15,6 +15,13 @@ public class ModalResultComponent {
                 .findBy(text(name))
                 .shouldHave(text(value));
     }
+    public void checkEmptyHobby() {
+        $(".modal-dialog").should(appear);
+        $(".table-responsive")
+                .$$( "tr")
+                .findBy(text("Hobbies"))
+                .shouldHave(text("Hobbies"));
+    }
     public void checkError (String nameAttr, String nameElement, String value){
         $(".modal-dialog").shouldNot(appear);
         $(nameAttr).shouldHave(cssValue(nameElement, value));

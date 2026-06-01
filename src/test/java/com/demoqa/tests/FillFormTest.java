@@ -1,10 +1,51 @@
 package com.demoqa.tests;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.demoqa.testdata.TestData.*;
+import static com.demoqa.utils.RandomUtils.*;
+
 
 public class FillFormTest extends TestBase {
+
+    String firstNameFaker;
+    String lastNameFaker;
+    String emailFaker;
+    String phoneNumberRandom;
+    String currAddressFaker;
+    String fisrtSubjectRandom;
+    String secondSubjectRandom;
+    String dayRandom;
+    String monthRandom;
+    String yearRandom;
+    String sexRandom;
+    String firstHobbyRandom;
+    String secondHobbyRandom;
+    String thirdHobbyRandom;
+    String profilePicRandom;
+    String stateRandom;
+    String cityRandom;
+
+    @BeforeEach
+    void randomVariableGeneration () {
+        firstNameFaker = fakerRu.name().firstName();
+        lastNameFaker = fakerRu.name().lastName();
+        emailFaker = fakerEn.internet().emailAddress();
+        currAddressFaker = fakerRu.address().fullAddress();
+        phoneNumberRandom = getRandomPhone();
+        fisrtSubjectRandom = getRandomSubject();
+        secondSubjectRandom = getRandomSubjectExcluding(fisrtSubjectRandom);
+        sexRandom = getRandomSex();
+        dayRandom = getRandomIntToString(1, 30);
+        yearRandom = getRandomIntToString(1980, 2025);
+        monthRandom = getRandomMonth();
+        profilePicRandom = getRandomProfilePic();
+        stateRandom = getRandomState();
+        cityRandom = getRandomCityByState(stateRandom);
+        firstHobbyRandom = generateRandomFirstHobby();
+        secondHobbyRandom = generateRandomSecondHobby();
+        thirdHobbyRandom = generateRandomThirdHobby();
+    }
 
     @Test
     void fillFormTest() {
@@ -12,44 +53,44 @@ public class FillFormTest extends TestBase {
                 .openPage()
 
         //Fill String value
-                .typeFirstName(firstName)
-                .typeLastName(lastName)
-                .typeEmail(email)
-                .typeNumber(phoneNumber)
-                .typeCurrentAddress(currAddress)
-                .enterSubject(fisrtSubject)
-                .enterSubject(secondSubject)
+                .typeFirstName(firstNameFaker)
+                .typeLastName(lastNameFaker)
+                .typeEmail(emailFaker)
+                .typeNumber(phoneNumberRandom)
+                .typeCurrentAddress(currAddressFaker)
+                .enterSubject(fisrtSubjectRandom)
+                .enterSubject(secondSubjectRandom)
 
         //Select Date of Birth
-                .clickCalendar(day, month, year)
+                .clickCalendar(dayRandom, monthRandom, yearRandom)
 
         //Wrapper Button click
-                .clickSex(sex)
-                .clickHobbies(fisrtHobby)
-                .clickHobbies(secondtHobby)
-                .clickHobbies(thirdHobby)
+                .clickSex(sexRandom)
+                .clickHobbies(firstHobbyRandom)
+                .clickHobbies(secondHobbyRandom)
+                .clickHobbies(thirdHobbyRandom)
 
         //State and City click
-                .clickAndStateInput(state, city)
+                .clickAndStateInput(stateRandom, cityRandom)
 
         //Upload image
-                .uploadPicture(profilePic)
+                .uploadPicture(profilePicRandom)
 
         //Submit
                 .submitForm()
 
         //Output Check
-                .modalDialogApper(finishMessage)
-                .outputBodyValueCheck("Student Name", firstName + " " + lastName)
-                .outputBodyValueCheck("Student Email" , email)
-                .outputBodyValueCheck("Gender" , sex)
-                .outputBodyValueCheck("Mobile" , phoneNumber)
-                .outputBodyValueCheck("Date of Birth" , day + " " + month + "," + year)
-                .outputBodyValueCheck("Subjects" , fisrtSubject + ", " + secondSubject)
-                .outputBodyValueCheck("Hobbies" , fisrtHobby + ", " + secondtHobby + ", " + thirdHobby)
-                .outputBodyValueCheck("Picture" , profilePic)
-                .outputBodyValueCheck("Address" , currAddress)
-                .outputBodyValueCheck("State and City" , state + " " + city);
+                .modalDialogApper()
+                .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
+                .outputBodyValueCheck("Student Email" , emailFaker)
+                .outputBodyValueCheck("Gender" , sexRandom)
+                .outputBodyValueCheck("Mobile" , phoneNumberRandom)
+                .outputBodyValueCheck("Date of Birth" , dayRandom + " " + monthRandom + "," + yearRandom)
+                .outputBodyValueCheck("Subjects" , fisrtSubjectRandom + ", " + secondSubjectRandom)
+                .outputBodyHobbyCheck(firstHobbyRandom , secondHobbyRandom,thirdHobbyRandom)
+                .outputBodyValueCheck("Picture" , profilePicRandom)
+                .outputBodyValueCheck("Address" , currAddressFaker)
+                .outputBodyValueCheck("State and City" , stateRandom + " " + cityRandom);
     }
 
     @Test
@@ -58,25 +99,25 @@ public class FillFormTest extends TestBase {
                 .openPage()
 
                 //Fill String value
-                .typeFirstName(firstName)
-                .typeLastName(lastName)
-                .typeNumber(phoneNumber)
+                .typeFirstName(firstNameFaker)
+                .typeLastName(lastNameFaker)
+                .typeNumber(phoneNumberRandom)
 
         //Select Date of Birth
-                .clickCalendar(day, month, year)
+                .clickCalendar(dayRandom, monthRandom, yearRandom)
 
         //Wrapper Button click
-                .clickSex(sex)
+                .clickSex(sexRandom)
 
         //Submit
                 .submitForm()
 
         //Output Check
-                .modalDialogApper(finishMessage)
-                .outputBodyValueCheck("Student Name", firstName + " " + lastName)
-                .outputBodyValueCheck("Gender" , sex)
-                .outputBodyValueCheck("Mobile" , phoneNumber)
-                .outputBodyValueCheck("Date of Birth" , day + " " + month + "," + year);
+                .modalDialogApper()
+                .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
+                .outputBodyValueCheck("Gender" , sexRandom)
+                .outputBodyValueCheck("Mobile" , phoneNumberRandom)
+                .outputBodyValueCheck("Date of Birth" , dayRandom + " " + monthRandom + "," + yearRandom);
     }
 
 }

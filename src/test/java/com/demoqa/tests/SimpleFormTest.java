@@ -1,10 +1,28 @@
 package com.demoqa.tests;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.demoqa.testdata.TestData.*;
+import static com.demoqa.utils.RandomUtils.*;
 
 public class SimpleFormTest extends TestBase {
+
+    String firstNameFaker;
+    String lastNameFaker;
+    String emailFaker;
+    String corruptedEmailRandom;
+    String currAddressFaker;
+    String permAddressFaker;
+
+    @BeforeEach
+    void randomVariableGeneration () {
+        firstNameFaker = fakerRu.name().firstName();
+        lastNameFaker = fakerRu.name().lastName();
+        emailFaker = fakerEn.internet().emailAddress();
+        corruptedEmailRandom = getRandomIntToString(1111, 9999);
+        currAddressFaker = fakerRu.address().fullAddress();
+        permAddressFaker = fakerRu.address().fullAddress();
+    }
 
     @Test
     void simpleFillFormTest() {
@@ -12,19 +30,19 @@ public class SimpleFormTest extends TestBase {
                 .openPage()
 
                 //Fill String value
-                .typeUserName(firstName + " " + lastName)
-                .typeUserEmail(email)
-                .typeUserCurrentAddress(currAddress)
-                .typeUserPermanentAddress(permAddress)
+                .typeUserName(firstNameFaker + " " + lastNameFaker)
+                .typeUserEmail(emailFaker)
+                .typeUserCurrentAddress(currAddressFaker)
+                .typeUserPermanentAddress(permAddressFaker)
 
                 //Submit
                 .submitForm()
 
                 //Output Check
-                .outputCheckValue(firstName + " " + lastName)
-                .outputCheckValue(email)
-                .outputCheckValue(currAddress)
-                .outputCheckValue(permAddress);
+                .outputCheckValue(firstNameFaker + " " + lastNameFaker)
+                .outputCheckValue(emailFaker)
+                .outputCheckValue(currAddressFaker)
+                .outputCheckValue(permAddressFaker);
     }
 
     @Test
@@ -33,10 +51,10 @@ public class SimpleFormTest extends TestBase {
                 .openPage()
 
                 //Fill String value
-                .typeUserName(firstName + " " + lastName)
-                .typeUserEmail(corruptedEmail)
-                .typeUserCurrentAddress(currAddress)
-                .typeUserPermanentAddress(permAddress)
+                .typeUserName(firstNameFaker + " " + lastNameFaker)
+                .typeUserEmail(corruptedEmailRandom)
+                .typeUserCurrentAddress(currAddressFaker)
+                .typeUserPermanentAddress(permAddressFaker)
 
                 //Submit
                 .submitForm()

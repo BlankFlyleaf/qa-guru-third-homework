@@ -18,7 +18,7 @@ public class TestData {
     public static String thirdHobby = "Music";
     public static String city = "Agra";
     public static String state = "Uttar Pradesh";
-    public static String profilePic = "profilePic.jpg";
+    public static String profilePic = "profilePic1.jpg";
     public static String finishMessage = "Thanks for submitting the form";
     public static String corruptedEmail = "1234";
 }
