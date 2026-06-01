@@ -8,7 +8,6 @@ import static java.lang.String.format;
 
 public class RandomUtils {
 
-    //psvm
     public static void main(String[] args) {
 //      System.out.println(getRandomString(8));
 //      System.out.println(getRandomEmail());
@@ -16,8 +15,8 @@ public class RandomUtils {
 //      System.out.println(getRandomInt(111111111, 888888888));
 //      System.out.println(getRandomPhone());
 //      System.out.println(getRandomGender());
-        System.out.println(getRandomInt(1, 30));
-        System.out.println(getRandomInt(1980, 2025));
+//        System.out.println(getRandomInt(1, 30));
+//        System.out.println(getRandomInt(1980, 2025));
     }
 
     public static String getRandomString(int length) {
@@ -30,11 +29,6 @@ public class RandomUtils {
         }
 
         return result.toString();
-    }
-
-    public static String getRandomEmail() {
-        //return getRandomString(8) + "@" + getRandomString(8) + ".com";
-        return format("%s@%s.com", getRandomString(8), getRandomString(8));
     }
 
     public static int getRandomInt(int min, int max) {
@@ -170,8 +164,6 @@ public class RandomUtils {
 
 
 
-
-
     //
     //
     // Неиспользуемые примеры из урока
@@ -191,5 +183,9 @@ public class RandomUtils {
 
     public static String getRandomEmail2() {
         return getRandomString(8) + "@" + getRandomString(8) + ".com";
+    }
+    public static String getRandomEmail() {
+        //return getRandomString(8) + "@" + getRandomString(8) + ".com";
+        return format("%s@%s.com", getRandomString(8), getRandomString(8));
     }
 }
