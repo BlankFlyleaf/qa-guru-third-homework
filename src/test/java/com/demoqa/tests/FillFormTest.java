@@ -13,7 +13,7 @@ public class FillFormTest extends TestBase {
     String emailFaker;
     String phoneNumberRandom;
     String currAddressFaker;
-    String fisrtSubjectRandom;
+    String firstSubjectRandom;
     String secondSubjectRandom;
     String dayRandom;
     String monthRandom;
@@ -33,8 +33,8 @@ public class FillFormTest extends TestBase {
         emailFaker = fakerEn.internet().emailAddress();
         currAddressFaker = fakerRu.address().fullAddress();
         phoneNumberRandom = getRandomPhone();
-        fisrtSubjectRandom = getRandomSubject();
-        secondSubjectRandom = getRandomSubjectExcluding(fisrtSubjectRandom);
+        firstSubjectRandom = getRandomSubject();
+        secondSubjectRandom = getRandomSubjectExcluding(firstSubjectRandom);
         sexRandom = getRandomSex();
         dayRandom = getRandomIntToString(1, 30);
         yearRandom = getRandomIntToString(1980, 2025);
@@ -58,7 +58,7 @@ public class FillFormTest extends TestBase {
                 .typeEmail(emailFaker)
                 .typeNumber(phoneNumberRandom)
                 .typeCurrentAddress(currAddressFaker)
-                .enterSubject(fisrtSubjectRandom)
+                .enterSubject(firstSubjectRandom)
                 .enterSubject(secondSubjectRandom)
 
         //Select Date of Birth
@@ -86,7 +86,7 @@ public class FillFormTest extends TestBase {
                 .outputBodyValueCheck("Gender" , sexRandom)
                 .outputBodyValueCheck("Mobile" , phoneNumberRandom)
                 .outputBodyValueCheck("Date of Birth" , dayRandom + " " + monthRandom + "," + yearRandom)
-                .outputBodyValueCheck("Subjects" , fisrtSubjectRandom + ", " + secondSubjectRandom)
+                .outputBodyValueCheck("Subjects" , firstSubjectRandom + ", " + secondSubjectRandom)
                 .outputBodyHobbyCheck(firstHobbyRandom , secondHobbyRandom,thirdHobbyRandom)
                 .outputBodyValueCheck("Picture" , profilePicRandom)
                 .outputBodyValueCheck("Address" , currAddressFaker)
