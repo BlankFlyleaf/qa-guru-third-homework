@@ -25,7 +25,7 @@ public class NegativeFillFormTest extends TestBase {
                 .submitForm()
 
         //Output Check
-                .outputCheckError("#firstName","background-image", errorSignUrl);
+                .outputCheckError("#firstName","border-color", "rgb(220, 53, 69)");
     }
 
     @Test
@@ -47,7 +47,7 @@ public class NegativeFillFormTest extends TestBase {
                 .submitForm()
 
         //Output Check
-                .outputCheckError("#lastName","background-image", errorSignUrl);
+                .outputCheckError("#lastName","border-color", "rgb(220, 53, 69)");
     }
 
     @Test
@@ -69,6 +69,6 @@ public class NegativeFillFormTest extends TestBase {
                 .submitForm()
 
                 //Output Check
-                .outputCheckError("#userNumber","background-image", errorSignUrl);
+                .outputCheckError("#userNumber","border-color", "rgb(220, 53, 69)");
     }
 }
