@@ -1,6 +1,8 @@
 package com.demoqa.tests;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.demoqa.utils.RandomUtils.*;
@@ -27,7 +29,10 @@ public class NegativeFillFormTest extends TestBase {
     }
 
     @Test
-    void withOutFirstNameTest() {
+    @Tag("Negative")
+    @Tag("Regression")
+    @DisplayName("Проверка валидации параметра 'Имя' сложной формы")
+    void withoutFirstNameTest() {
         formTestPages
                 .openPage()
 
@@ -49,7 +54,10 @@ public class NegativeFillFormTest extends TestBase {
     }
 
     @Test
-    void withOutSecondNameTest() {
+    @Tag("Negative")
+    @Tag("Regression")
+    @DisplayName("Проверка валидации параметра 'Фамилия' сложной формы")
+    void withoutSecondNameTest() {
         formTestPages
                 .openPage()
 
@@ -71,7 +79,10 @@ public class NegativeFillFormTest extends TestBase {
     }
 
     @Test
-    void withOutPhoneNumberTest() {
+    @Tag("Negative")
+    @Tag("Regression")
+    @DisplayName("Проверка валидации параметра 'Номер телефон' сложной формы")
+    void withoutPhoneNumberTest() {
         formTestPages
                 .openPage()
 

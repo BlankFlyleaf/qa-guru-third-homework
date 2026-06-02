@@ -1,7 +1,6 @@
 package com.demoqa.tests;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.demoqa.utils.RandomUtils.*;
 
@@ -48,7 +47,10 @@ public class FillFormTest extends TestBase {
     }
 
     @Test
-    void fillFormTest() {
+    @Tag("Smoke")
+    @Tag("Regression")
+    @DisplayName("Заполнение всех параметров сложной формы")
+    void fillAllParamFormTest() {
         formTestPages
                 .openPage()
 
@@ -94,7 +96,10 @@ public class FillFormTest extends TestBase {
     }
 
     @Test
-    void requiredFillFormTest() {
+    @Tag("Smoke")
+    @Tag("Regression")
+    @DisplayName("Заполнение обязательных параметров сложной формы")
+    void requiredParamFillFormTest() {
         formTestPages
                 .openPage()
 
