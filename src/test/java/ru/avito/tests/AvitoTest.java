@@ -8,8 +8,6 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import ru.avito.data.NameOfCategory;
 
-import static com.codeborne.selenide.Selenide.sleep;
-
 public class AvitoTest extends TestBase {
 
 
