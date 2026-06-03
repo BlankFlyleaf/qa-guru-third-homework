@@ -116,7 +116,7 @@ public class FormTestPages {
 
 
     // valueOutput
-    public FormTestPages modalDialogApper() {
+    public FormTestPages modalDialogAppear() {
         ModalResultComponent modalResultComponent = new ModalResultComponent();
         modalResultComponent.checkTitle("Thanks for submitting the form");
 
@@ -129,7 +129,7 @@ public class FormTestPages {
         return this;
     }
     public FormTestPages outputBodyHobbyCheck(String firstHobby, String secondHobby, String thirdHobby) {
-        String expectedValue = null;
+        String expectedValue;
         ModalResultComponent modalResultComponent = new ModalResultComponent();
 
         if (firstHobby != null && secondHobby != null && thirdHobby != null) {

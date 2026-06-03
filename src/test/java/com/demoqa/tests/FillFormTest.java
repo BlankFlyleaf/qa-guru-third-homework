@@ -60,7 +60,6 @@ public class FillFormTest extends TestBase {
         formTestPages
                 .openPage()
 
-        //Fill String value
                 .typeFirstName(firstNameFaker)
                 .typeLastName(lastNameFaker)
                 .typeEmail(emailFaker)
@@ -68,27 +67,17 @@ public class FillFormTest extends TestBase {
                 .typeCurrentAddress(currAddressFaker)
                 .enterSubject(firstSubjectRandom)
                 .enterSubject(secondSubjectRandom)
-
-        //Select Date of Birth
                 .clickCalendar(dayRandom, monthRandom, yearRandom)
-
-        //Wrapper Button click
                 .clickSex(sexRandom)
                 .clickHobbies(firstHobbyRandom)
                 .clickHobbies(secondHobbyRandom)
                 .clickHobbies(thirdHobbyRandom)
-
-        //State and City click
                 .clickAndStateInput(stateRandom, cityRandom)
-
-        //Upload image
                 .uploadPicture(profilePicRandom)
 
-        //Submit
                 .submitForm()
 
-        //Output Check
-                .modalDialogApper()
+                .modalDialogAppear()
                 .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
                 .outputBodyValueCheck("Student Email" , emailFaker)
                 .outputBodyValueCheck("Gender" , sexRandom)
@@ -109,22 +98,15 @@ public class FillFormTest extends TestBase {
         formTestPages
                 .openPage()
 
-                //Fill String value
                 .typeFirstName(firstNameFaker)
                 .typeLastName(lastNameFaker)
                 .typeNumber(phoneNumberRandom)
-
-        //Select Date of Birth
                 .clickCalendar(dayRandom, monthRandom, yearRandom)
-
-        //Wrapper Button click
                 .clickSex(sexRandom)
 
-        //Submit
                 .submitForm()
 
-        //Output Check
-                .modalDialogApper()
+                .modalDialogAppear()
                 .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
                 .outputBodyValueCheck("Gender" , sexRandom)
                 .outputBodyValueCheck("Mobile" , phoneNumberRandom)

@@ -37,16 +37,13 @@ public class SimpleFormTest extends TestBase {
         simpleFormTestPages
                 .openPage()
 
-                //Fill String value
                 .typeUserName(firstNameFaker + " " + lastNameFaker)
                 .typeUserEmail(emailFaker)
                 .typeUserCurrentAddress(currAddressFaker)
                 .typeUserPermanentAddress(permAddressFaker)
 
-                //Submit
                 .submitForm()
 
-                //Output Check
                 .outputCheckValue(firstNameFaker + " " + lastNameFaker)
                 .outputCheckValue(emailFaker)
                 .outputCheckValue(currAddressFaker)
@@ -62,16 +59,13 @@ public class SimpleFormTest extends TestBase {
         simpleFormTestPages
                 .openPage()
 
-                //Fill String value
                 .typeUserName(firstNameFaker + " " + lastNameFaker)
                 .typeUserEmail(corruptedEmailRandom)
                 .typeUserCurrentAddress(currAddressFaker)
                 .typeUserPermanentAddress(permAddressFaker)
 
-                //Submit
                 .submitForm()
 
-                //Output Check
                 .outputCheckEmailError("class", "mr-sm-2 field-error form-control");
     }
 }

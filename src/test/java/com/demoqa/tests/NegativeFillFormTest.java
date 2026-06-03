@@ -39,20 +39,13 @@ public class NegativeFillFormTest extends TestBase {
         formTestPages
                 .openPage()
 
-        //Fill String value
                 .typeLastName(lastNameFaker)
                 .typeNumber(phoneNumberRandom)
-
-        //Select Date of Birth
                 .clickCalendar(dayRandom, monthRandom, yearRandom)
-
-        //Wrapper Button click
                 .clickSex(sexRandom)
 
-        //Submit
                 .submitForm()
 
-        //Output Check
                 .outputCheckError("#firstName","border-color", "rgb(220, 53, 69)");
     }
 
@@ -64,20 +57,13 @@ public class NegativeFillFormTest extends TestBase {
         formTestPages
                 .openPage()
 
-                //Fill String value
                 .typeFirstName(firstNameFaker)
                 .typeNumber(phoneNumberRandom)
-
-                //Select Date of Birth
                 .clickCalendar(dayRandom, monthRandom, yearRandom)
-
-                //Wrapper Button click
                 .clickSex(sexRandom)
 
-                //Submit
                 .submitForm()
 
-        //Output Check
                 .outputCheckError("#lastName","border-color", "rgb(220, 53, 69)");
     }
 
@@ -89,20 +75,13 @@ public class NegativeFillFormTest extends TestBase {
         formTestPages
                 .openPage()
 
-                //Fill String value
                 .typeFirstName(firstNameFaker)
                 .typeLastName(lastNameFaker)
-
-                //Select Date of Birth
                 .clickCalendar(dayRandom, monthRandom, yearRandom)
-
-                //Wrapper Button click
                 .clickSex(sexRandom)
 
-                //Submit
                 .submitForm()
 
-                //Output Check
                 .outputCheckError("#userNumber","border-color", "rgb(220, 53, 69)");
     }
 }
