@@ -1,5 +1,6 @@
 package com.demoqa.tests;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
 
 import static com.demoqa.utils.RandomUtils.*;
@@ -44,6 +45,11 @@ public class FillFormTest extends TestBase {
         firstHobbyRandom = generateRandomFirstHobby();
         secondHobbyRandom = generateRandomSecondHobby();
         thirdHobbyRandom = generateRandomThirdHobby();
+    }
+
+    @AfterEach
+    void tearDown() {
+        Selenide.closeWebDriver();
     }
 
     @Test

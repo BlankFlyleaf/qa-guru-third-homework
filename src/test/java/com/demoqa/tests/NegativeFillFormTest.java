@@ -1,9 +1,7 @@
 package com.demoqa.tests;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.*;
 
 import static com.demoqa.utils.RandomUtils.*;
 
@@ -26,6 +24,11 @@ public class NegativeFillFormTest extends TestBase {
         dayRandom = getRandomIntToString(1, 30);
         yearRandom = getRandomIntToString(1980, 2025);
         monthRandom = getRandomMonth();
+    }
+
+    @AfterEach
+    void tearDown() {
+        Selenide.closeWebDriver();
     }
 
     @Test

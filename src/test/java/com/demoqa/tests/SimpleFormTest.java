@@ -1,9 +1,7 @@
 package com.demoqa.tests;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.*;
 
 import static com.demoqa.utils.RandomUtils.*;
 
@@ -24,6 +22,11 @@ public class SimpleFormTest extends TestBase {
         corruptedEmailRandom = getRandomIntToString(1111, 9999);
         currAddressFaker = fakerRu.address().fullAddress();
         permAddressFaker = fakerRu.address().fullAddress();
+    }
+
+    @AfterEach
+    void tearDown() {
+        Selenide.closeWebDriver();
     }
 
     @Test

@@ -11,13 +11,17 @@ repositories {
 
 dependencies {
     testImplementation (
-            "com.codeborne:selenide:6.19.1",
+            "com.codeborne:selenide:7.16.2",
             "org.junit.jupiter:junit-jupiter:5.10.0",
-            'org.slf4j:slf4j-simple:2.0.7',
+            'org.slf4j:slf4j-simple:2.0.18',
             'com.github.javafaker:javafaker:1.0.2'
     )
 }
 
 test {
     useJUnitPlatform()
+    def tags = System.getProperty('includeTags')
+    if (tags) {
+        includeTags tags
+    }
 }

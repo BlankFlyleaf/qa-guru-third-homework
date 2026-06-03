@@ -1,15 +1,22 @@
 package ru.avito.tests;
 
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
 import ru.avito.data.NameOfCategory;
 
 public class AvitoTest extends TestBase {
 
+    @AfterEach
+    void tearDown() {
+        Selenide.closeWebDriver();
+    }
 
     @ValueSource (strings = {
             "Настольные игры",
