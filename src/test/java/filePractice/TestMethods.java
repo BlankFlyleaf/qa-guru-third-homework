@@ -39,20 +39,13 @@ public class TestMethods extends TestBase {
             XLS xls = new XLS(is);
 
             //Header checks
-            assertThat(xlsHelper.getCellValue(xls, 0, 0, 1))
-                    .contains("First Name");
-            assertThat(xlsHelper.getCellValue(xls, 0, 0, 2))
-                    .contains("Last Name");
-            assertThat(xlsHelper.getCellValue(xls, 0, 0, 3))
-                    .contains("Gender");
-            assertThat(xlsHelper.getCellValue(xls, 0, 0, 4))
-                    .contains("Country");
-            assertThat(xlsHelper.getCellValue(xls, 0, 0, 5))
-                    .contains("Age");
-            assertThat(xlsHelper.getCellValue(xls, 0, 0, 6))
-                    .contains("Date");
-            assertThat(xlsHelper.getCellValue(xls, 0, 0, 7))
-                    .contains("Id");
+            assertThat(xlsHelper.getCellValue(xls, 0, 0, 1)).contains("First Name");
+            assertThat(xlsHelper.getCellValue(xls, 0, 0, 2)).contains("Last Name");
+            assertThat(xlsHelper.getCellValue(xls, 0, 0, 3)).contains("Gender");
+            assertThat(xlsHelper.getCellValue(xls, 0, 0, 4)).contains("Country");
+            assertThat(xlsHelper.getCellValue(xls, 0, 0, 5)).contains("Age");
+            assertThat(xlsHelper.getCellValue(xls, 0, 0, 6)).contains("Date");
+            assertThat(xlsHelper.getCellValue(xls, 0, 0, 7)).contains("Id");
         }
     }
 
