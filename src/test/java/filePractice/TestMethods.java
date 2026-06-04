@@ -78,7 +78,7 @@ public class TestMethods extends TestBase {
     }
 
     @Test
-    void jaksonTest() throws Exception{
+    void jaksonFromFileTest() throws Exception{
         try (Reader reader = new InputStreamReader(
                 cl.getResourceAsStream("files/homeworkExample.json")
         )) {

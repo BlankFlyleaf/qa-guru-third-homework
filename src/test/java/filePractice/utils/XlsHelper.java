@@ -2,8 +2,6 @@ package filePractice.utils;
 
 import com.codeborne.xlstest.XLS;
 
-import java.io.InputStream;
-
 public class XlsHelper {
 
     public String getCellValue(XLS xls, int sheetIndex, int rowIndex, int cellIndex){
