@@ -86,12 +86,12 @@ public class TestMethods extends TestBase {
             JsonNode actual = mapper.readTree(reader);
 
             Assertions.assertEquals("Logan Keller", actual.get("name").asText());
-            Assertions.assertEquals(32, actual.get("age").asInt());
+            Assertions.assertEquals(32, actual.get("AGE").asInt());
 
             JsonNode inner = actual.get("favoriteFood");
 
-            Assertions.assertEquals("apple", inner.get("Fruit").asText());
-            Assertions.assertEquals("borsch", inner.get("Soup").asText());
+            Assertions.assertEquals("apple", inner.get("FRUIT").asText());
+            Assertions.assertEquals("borsch", inner.get("SOUP").asText());
 
             JsonNode friends = actual.get("friends");
 
