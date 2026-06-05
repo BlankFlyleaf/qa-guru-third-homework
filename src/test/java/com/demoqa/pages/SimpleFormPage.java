@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class SimpleFormTestPages {
+public class SimpleFormPage {
     private final SelenideElement userNameInput = $("#userName");
     private final SelenideElement userEmailInput = $("#userEmail");
     private final SelenideElement userCurrentAddressInput = $("#currentAddress");
@@ -16,49 +16,49 @@ public class SimpleFormTestPages {
     private final SelenideElement outputCheck = $("#output");
     private final SelenideElement emailOutput = $("#userEmail");
 
-    public SimpleFormTestPages openPage() {
+    public SimpleFormPage openPage() {
         open("/text-box");
 
         return this;
     }
 
-    public SimpleFormTestPages submitForm(){
+    public SimpleFormPage submitForm(){
         clickInput.click();
 
         return this;
     }
 
-    public SimpleFormTestPages typeUserName(String value) {
+    public SimpleFormPage typeUserName(String value) {
         userNameInput.setValue(value);
 
         return this;
     }
 
-    public SimpleFormTestPages typeUserEmail(String value) {
+    public SimpleFormPage typeUserEmail(String value) {
         userEmailInput.setValue(value);
 
         return this;
     }
 
-    public SimpleFormTestPages typeUserCurrentAddress(String value) {
+    public SimpleFormPage typeUserCurrentAddress(String value) {
         userCurrentAddressInput.setValue(value);
 
         return this;
     }
 
-    public SimpleFormTestPages typeUserPermanentAddress(String value) {
+    public SimpleFormPage typeUserPermanentAddress(String value) {
         userPermanentAddressInput.setValue(value);
 
         return this;
     }
 
-    public SimpleFormTestPages outputCheckValue(String value) {
+    public SimpleFormPage outputCheckValue(String value) {
         outputCheck.shouldHave(text(value));
 
         return this;
     }
 
-    public SimpleFormTestPages outputCheckEmailError(String value, String s) {
+    public SimpleFormPage outputCheckEmailError(String value, String s) {
         emailOutput.shouldHave(attribute(value, s));
 
         return this;

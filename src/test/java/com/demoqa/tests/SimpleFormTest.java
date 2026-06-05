@@ -34,7 +34,7 @@ public class SimpleFormTest extends TestBase {
     @Tag("Regression")
     @DisplayName("Заполнение всех параметров простой формы")
     void fillAllParamSimpleFormTest() {
-        simpleFormTestPages
+        simpleFormPage
                 .openPage()
 
                 .typeUserName(firstNameFaker + " " + lastNameFaker)
@@ -56,7 +56,7 @@ public class SimpleFormTest extends TestBase {
     @Tag("Regression")
     @DisplayName("Проверка валидации параметра 'email' простой формы")
     void withWrongEmailSimpleTest() {
-        simpleFormTestPages
+        simpleFormPage
                 .openPage()
 
                 .typeUserName(firstNameFaker + " " + lastNameFaker)

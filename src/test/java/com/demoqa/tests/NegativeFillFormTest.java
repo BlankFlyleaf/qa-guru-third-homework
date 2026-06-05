@@ -36,7 +36,7 @@ public class NegativeFillFormTest extends TestBase {
     @Tag("Regression")
     @DisplayName("Проверка валидации параметра 'Имя' сложной формы")
     void withoutFirstNameTest() {
-        formTestPages
+        registrationFormPage
                 .openPage()
 
                 .typeLastName(lastNameFaker)
@@ -54,7 +54,7 @@ public class NegativeFillFormTest extends TestBase {
     @Tag("Regression")
     @DisplayName("Проверка валидации параметра 'Фамилия' сложной формы")
     void withoutSecondNameTest() {
-        formTestPages
+        registrationFormPage
                 .openPage()
 
                 .typeFirstName(firstNameFaker)
@@ -72,7 +72,7 @@ public class NegativeFillFormTest extends TestBase {
     @Tag("Regression")
     @DisplayName("Проверка валидации параметра 'Номер телефон' сложной формы")
     void withoutPhoneNumberTest() {
-        formTestPages
+        registrationFormPage
                 .openPage()
 
                 .typeFirstName(firstNameFaker)

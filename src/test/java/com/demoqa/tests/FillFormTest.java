@@ -57,7 +57,7 @@ public class FillFormTest extends TestBase {
     @Tag("Regression")
     @DisplayName("Заполнение всех параметров сложной формы")
     void fillAllParamFormTest() {
-        formTestPages
+        registrationFormPage
                 .openPage()
 
                 .typeFirstName(firstNameFaker)
@@ -95,7 +95,7 @@ public class FillFormTest extends TestBase {
     @Tag("Regression")
     @DisplayName("Заполнение обязательных параметров сложной формы")
     void requiredParamFillFormTest() {
-        formTestPages
+        registrationFormPage
                 .openPage()
 
                 .typeFirstName(firstNameFaker)

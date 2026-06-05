@@ -1,29 +1,39 @@
 package com.demoqa.pages.components;
 
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ModalResultComponent {
+
+    private final SelenideElement modalDialog = $(".modal-dialog");
+    private final SelenideElement modalTitle = $(".modal-title");
+    private final SelenideElement modalTableCells = $(".table-responsive");
+    private SelenideElement attributeName(String nameAttr) {
+        return $(nameAttr);
+    }
+
     public void checkTitle(String value) {
-        $(".modal-dialog").should(appear);
-        $(".modal-title").shouldHave(text(value));
+        modalDialog.should(appear);
+        modalTitle.shouldHave(text(value));
     }
     public void checkValue(String name, String value) {
-        $(".modal-dialog").should(appear);
-        $(".table-responsive")
+        modalDialog.should(appear);
+        modalTableCells
                 .$$( "tr")
                 .findBy(text(name))
                 .shouldHave(text(value));
     }
     public void checkEmptyHobby() {
-        $(".modal-dialog").should(appear);
-        $(".table-responsive")
+        modalDialog.should(appear);
+        modalTableCells
                 .$$( "tr")
                 .findBy(text("Hobbies"))
                 .shouldHave(text("Hobbies"));
     }
     public void checkError (String nameAttr, String nameElement, String value){
-        $(".modal-dialog").shouldNot(appear);
-        $(nameAttr).shouldHave(cssValue(nameElement, value));
+        modalDialog.shouldNot(appear);
+        attributeName(nameAttr).shouldHave(cssValue(nameElement, value));
     }
 }
