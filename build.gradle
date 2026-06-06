@@ -46,6 +46,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
     def tags = System.getProperty('includeTags')
     if (tags) {
         includeTags tags
