@@ -66,6 +66,7 @@ public class FillFormTest extends TestBase {
     @Owner("AСhurilov")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Заполнение всех параметров сложной формы")
+    @Disabled("Для занятия 10")
     void fillAllParamFormTest() {
 
         step("Открываем страницу регистрации", () ->{
@@ -119,6 +120,7 @@ public class FillFormTest extends TestBase {
     @Owner("AСhurilov")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Заполнение обязательных параметров сложной формы")
+    @Disabled("Для занятия 10")
     void requiredParamFillFormTest() {
         step("Открываем страницу регистрации", () ->{
         registrationFormPage

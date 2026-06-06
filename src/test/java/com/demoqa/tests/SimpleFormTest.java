@@ -39,6 +39,7 @@ public class SimpleFormTest extends TestBase {
     @Owner("AСhurilov")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Заполнение всех параметров простой формы")
+    @Disabled("Для занятия 10")
     void fillAllParamSimpleFormTest() {
         simpleFormPage
                 .openPage()
@@ -64,6 +65,7 @@ public class SimpleFormTest extends TestBase {
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка валидации параметра 'email' простой формы")
+    @Disabled("Для занятия 10")
     void withWrongEmailSimpleTest() {
         simpleFormPage
                 .openPage()
