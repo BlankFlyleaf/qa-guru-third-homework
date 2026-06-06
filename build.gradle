@@ -1,0 +1,54 @@
+plugins {
+    id 'java-library'
+    id('io.qameta.allure') version '4.0.2'
+}
+
+group = 'guru.qa_homework'
+version = '1.0-SNAPSHOT'
+
+allure {
+    report {
+        version.set("2.40.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.34.0")
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:7.16.2",
+            "org.junit.jupiter:junit-jupiter:6.1.0",
+            'org.slf4j:slf4j-simple:2.0.18',
+            'com.github.javafaker:javafaker:1.0.2',
+            'commons-io:commons-io:2.22.0',
+            'com.codeborne:pdf-test:2.1.0',
+            'com.opencsv:opencsv:5.12.0',
+            'com.fasterxml.jackson.core:jackson-databind:2.22.0',
+            'com.google.code.gson:gson:2.10.1',
+            'org.assertj:assertj-core:3.25.3',
+            'com.codeborne:xls-test:1.4.3',
+            'io.qameta.allure:allure-selenide:2.34.0'
+    )
+    testRuntimeOnly(
+            "org.junit.platform:junit-platform-launcher"
+    )
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+    def tags = System.getProperty('includeTags')
+    if (tags) {
+        includeTags tags
+    }
+}
