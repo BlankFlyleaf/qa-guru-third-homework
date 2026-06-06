@@ -6,6 +6,8 @@ jobs:
   test:
     # где заускаем
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     # что делаем
     steps:
       # выкачиваем репозиторий
