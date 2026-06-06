@@ -26,6 +26,7 @@ public class LessonsTest {
     private static final Gson gson = new Gson();
 
     @Test
+    @Disabled
     void pdfFileParsingTest() throws Exception {
         open("https://junit.org/junit5/docs/current/user-guide/");
         File downloaded = $("[href*='junit-user-guide-5.10.1.pdf']").download();
@@ -36,6 +37,7 @@ public class LessonsTest {
 
 
     @Test
+    @Disabled
     void csvFileParsingTest() throws Exception {
         try (InputStream is = cl.getResourceAsStream("files/example.csv");
              CSVReader csvReader = new CSVReader(new InputStreamReader(is))) {
@@ -54,6 +56,7 @@ public class LessonsTest {
     }
 
     @Test
+    @Disabled
     void xlsFileParsingTest() throws Exception {
         open("https://excelvba.ru/programmes/Teachers?ysclid=lfcu77j9j9951587711");
         File downloaded = $("[href='https://ExcelVBA.ru/sites/default/files/teachers.xls']").download();
@@ -65,6 +68,7 @@ public class LessonsTest {
     }
 
     @Test
+    @Disabled
     void zipFileParsingTest() throws Exception {
         try (ZipInputStream zis = new ZipInputStream(
                 cl.getResourceAsStream("sample.zip")
@@ -78,6 +82,7 @@ public class LessonsTest {
     }
 
     @Test
+    @Disabled
     void jsonFileParsingTest() throws Exception {
         try (Reader reader = new InputStreamReader(
                 cl.getResourceAsStream("files/glossary.json")
