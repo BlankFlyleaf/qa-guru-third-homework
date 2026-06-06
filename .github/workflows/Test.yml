@@ -16,7 +16,7 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
       - uses: Xotabu4/selenoid-github-action@v2
-      # запускаем тесты
+      # запускаем тесты1
       - name: Make gradlew executable
         run: chmod +x gradlew
       - name: Run tests
