@@ -1,9 +1,24 @@
 plugins {
     id 'java-library'
+    id('io.qameta.allure') version '4.0.2'
 }
 
 group = 'guru.qa_homework'
 version = '1.0-SNAPSHOT'
+
+allure {
+    report {
+        version.set("2.40.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.34.0")
+            }
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -21,7 +36,8 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-databind:2.22.0',
             'com.google.code.gson:gson:2.10.1',
             'org.assertj:assertj-core:3.25.3',
-            'com.codeborne:xls-test:1.4.3'
+            'com.codeborne:xls-test:1.4.3',
+            'io.qameta.allure:allure-selenide:2.34.0'
     )
     testRuntimeOnly(
             "org.junit.platform:junit-platform-launcher"

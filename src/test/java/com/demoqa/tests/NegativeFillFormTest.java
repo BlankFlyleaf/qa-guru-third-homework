@@ -1,6 +1,10 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 
 import static com.demoqa.utils.RandomUtils.*;
@@ -34,6 +38,9 @@ public class NegativeFillFormTest extends TestBase {
     @Test
     @Tag("Negative")
     @Tag("Regression")
+    @Story("Заполнение сложной формы demo.qa")
+    @Owner("AСhurilov")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка валидации параметра 'Имя' сложной формы")
     void withoutFirstNameTest() {
         registrationFormPage
@@ -52,6 +59,9 @@ public class NegativeFillFormTest extends TestBase {
     @Test
     @Tag("Negative")
     @Tag("Regression")
+    @Story("Заполнение сложной формы demo.qa")
+    @Owner("AСhurilov")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка валидации параметра 'Фамилия' сложной формы")
     void withoutSecondNameTest() {
         registrationFormPage
@@ -70,6 +80,9 @@ public class NegativeFillFormTest extends TestBase {
     @Test
     @Tag("Negative")
     @Tag("Regression")
+    @Story("Заполнение сложной формы demo.qa")
+    @Owner("AСhurilov")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка валидации параметра 'Номер телефон' сложной формы")
     void withoutPhoneNumberTest() {
         registrationFormPage

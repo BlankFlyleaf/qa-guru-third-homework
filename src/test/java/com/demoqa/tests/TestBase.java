@@ -1,9 +1,11 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demoqa.pages.RegistrationFormPage;
 import com.demoqa.pages.SimpleFormPage;
 import com.github.javafaker.Faker;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.util.Locale;
@@ -21,5 +23,10 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         //Configuration.holdBrowserOpen = true;
+    }
+
+    @BeforeAll
+    static void setUpAllure() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 }

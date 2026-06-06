@@ -1,6 +1,7 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 import static com.demoqa.utils.RandomUtils.*;
@@ -15,6 +16,7 @@ public class SimpleFormTest extends TestBase {
     String permAddressFaker;
 
     @BeforeEach
+    @Step("Генерируем случайные данные")
     void randomVariableGeneration () {
         firstNameFaker = fakerRu.name().firstName();
         lastNameFaker = fakerRu.name().lastName();
@@ -25,6 +27,7 @@ public class SimpleFormTest extends TestBase {
     }
 
     @AfterEach
+    @Step("Завершаем тест")
     void tearDown() {
         Selenide.closeWebDriver();
     }
@@ -32,6 +35,9 @@ public class SimpleFormTest extends TestBase {
     @Test
     @Tag("Smoke")
     @Tag("Regression")
+    @Story("Заполнение простой формы demo.qa")
+    @Owner("AСhurilov")
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Заполнение всех параметров простой формы")
     void fillAllParamSimpleFormTest() {
         simpleFormPage
@@ -54,6 +60,9 @@ public class SimpleFormTest extends TestBase {
     @Tag("Negative")
     @Tag("Smoke")
     @Tag("Regression")
+    @Story("Заполнение простой формы demo.qa")
+    @Owner("AСhurilov")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка валидации параметра 'email' простой формы")
     void withWrongEmailSimpleTest() {
         simpleFormPage

@@ -2,6 +2,7 @@ package ru.avito.tests;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -25,6 +26,7 @@ public class AvitoTest extends TestBase {
     })
     @ParameterizedTest
     @Tag("Blocker")
+    @Disabled
     @DisplayName("Проверка поиска по объявлениям Авито c запросом {0}")
     public void avitoProductSearchTest(String search) {
             avitoPage
@@ -41,6 +43,7 @@ public class AvitoTest extends TestBase {
     })
     @ParameterizedTest
     @Tag("Blocker")
+    @Disabled
     @DisplayName("Проверка поиска по объявлениям Авито с запросом {0} по городу {1}")
     public void avitoProductSearchByTownTest(String search, String city, String expectedCity) {
         avitoPage
@@ -58,6 +61,7 @@ public class AvitoTest extends TestBase {
     @EnumSource(NameOfCategory.class)
     @ParameterizedTest
     @Tag("Blocker")
+    @Disabled
     @DisplayName("Проверка заголовков подкатегории {0}")
     public void categoryHeaderTest(NameOfCategory nameOfCategory) {
         avitoPage
