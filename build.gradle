@@ -52,3 +52,14 @@ test {
         includeTags tags
     }
 }
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standart_out"
+            exceptionFormat "short"
+        }
+    }
+}
