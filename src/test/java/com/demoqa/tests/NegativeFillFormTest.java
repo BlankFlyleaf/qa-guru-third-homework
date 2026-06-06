@@ -41,8 +41,8 @@ public class NegativeFillFormTest extends TestBase {
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Проверка валидации параметра 'Имя' сложной формы")
     @Disabled("Для занятия 10")
+    @DisplayName("Проверка валидации параметра 'Имя' сложной формы")
     void withoutFirstNameTest() {
         registrationFormPage
                 .openPage()
@@ -63,8 +63,8 @@ public class NegativeFillFormTest extends TestBase {
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Проверка валидации параметра 'Фамилия' сложной формы")
     @Disabled("Для занятия 10")
+    @DisplayName("Проверка валидации параметра 'Фамилия' сложной формы")
     void withoutSecondNameTest() {
         registrationFormPage
                 .openPage()
@@ -85,8 +85,8 @@ public class NegativeFillFormTest extends TestBase {
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Проверка валидации параметра 'Номер телефон' сложной формы")
     @Disabled("Для занятия 10")
+    @DisplayName("Проверка валидации параметра 'Номер телефон' сложной формы")
     void withoutPhoneNumberTest() {
         registrationFormPage
                 .openPage()
