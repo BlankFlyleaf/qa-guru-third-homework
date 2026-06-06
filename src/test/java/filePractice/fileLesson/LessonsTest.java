@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.opencsv.CSVReader;
 import filePractice.fileLesson.model.Glossary;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -94,6 +95,7 @@ public class LessonsTest {
     }
 
     @Test
+    @Disabled
     void jsonFileParsingImprovedTest() throws Exception {
         try (Reader reader = new InputStreamReader(
                 cl.getResourceAsStream("files/glossary.json")

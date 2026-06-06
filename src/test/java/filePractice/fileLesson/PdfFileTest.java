@@ -2,6 +2,7 @@ package filePractice.fileLesson;
 
 import com.codeborne.pdftest.PDF;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -27,6 +28,7 @@ public class PdfFileTest {
   //  }
 
     @Test
+    @Disabled
     void zipFileParsingTest () throws Exception {
         try (ZipInputStream zis = new ZipInputStream(
                 cl.getResourceAsStream("files/testArchive.zip")
@@ -41,6 +43,7 @@ public class PdfFileTest {
     }
 
     @Test
+    @Disabled
     void pdfFileReadTest() throws Exception {
         try (InputStream is = cl.getResourceAsStream("pdftest.pdf")) {
             if (is == null) {

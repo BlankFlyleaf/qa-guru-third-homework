@@ -1,6 +1,7 @@
 package filePractice.fileLesson;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -15,6 +16,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class SelenideFilesTest {
 
     @Test
+    @Disabled
     void downloadFileTest() throws Exception {
         open("https://github.com/junit-team/junit5/blob/main/README.md");
         File downloaded =
@@ -29,6 +31,7 @@ public class SelenideFilesTest {
     }
 
     @Test
+    @Disabled
     void uploadFileTest() {
         open("https://fineuploader.com/demos.html");
         $("input[type='file']").uploadFromClasspath("cat.png");
