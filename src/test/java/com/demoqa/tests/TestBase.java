@@ -34,7 +34,7 @@ public class TestBase {
         String selenoidUrl = System.getProperty("SELENOID_URL");
         String baseUrl = System.getProperty("BASE_URL");
 
-        step("Задаем настройки для тестов", () ->{
+        step("Задаем настройки для автотестов", () ->{
         Configuration.browser = browser;
         Configuration.browserVersion = browserVersion;
         Configuration.browserSize = browserSize;
