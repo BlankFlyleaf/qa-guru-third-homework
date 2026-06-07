@@ -3,6 +3,7 @@ package com.demoqa.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.ModalResultComponent;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -24,54 +25,63 @@ public class RegistrationFormPage {
     private final SelenideElement stateClick = $("#state");
     private final SelenideElement cityClick = $("#city");
 
+    @Step("Заполняем имя - {value}")
     public RegistrationFormPage typeFirstName(String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
 
+    @Step("Заполняем фамилию - {value}")
     public RegistrationFormPage typeLastName(String value) {
         lastNameInput.setValue(value);
 
         return this;
     }
 
+    @Step("Заполняем email - {value}")
     public RegistrationFormPage typeEmail(String value) {
         emailInput.setValue(value);
 
         return this;
     }
 
+    @Step("Заполняем текущий адрес - {value}")
     public RegistrationFormPage typeCurrentAddress(String value) {
         currentAddressInput.setValue(value);
 
         return this;
     }
 
+    @Step("Заполняем номер телефона - {value}")
     public RegistrationFormPage typeNumber(String value) {
         numberInput.setValue(value);
 
         return this;
     }
 
+    @Step("Загружаем картинку профиля - {value}")
     public RegistrationFormPage uploadPicture(String value) {
         uploadPictureInput.uploadFromClasspath(value);
 
         return this;
     }
 
+    @Step("Нажимаем кнопку Submit")
     public RegistrationFormPage submitForm(){
         formClick.click();
 
         return this;
     }
 
+    @Step("Выбираем пол - {value}")
     public RegistrationFormPage clickSex(String value) {
         sexInput.$(byText(value)).click();
 
         return this;
     }
 
+    @Step("Выбираем хобби - {value}")
     public RegistrationFormPage clickHobbies(String value) {
         if (value != null) {
             hobbiesInput.$(byText(value)).click();
@@ -80,18 +90,21 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Выбираем предмет - {value}")
     public RegistrationFormPage enterSubject(String value) {
         subjectInput.setValue(value).pressEnter();
 
         return this;
     }
 
+    @Step("Открываем страницу сложной формы")
     public RegistrationFormPage openPage() {
         open("/automation-practice-form");
 
         return this;
     }
 
+    @Step("Заполняем дату рождения - {value}")
     public RegistrationFormPage clickCalendar(String day, String month, String year) {
         calendarClick.click();
 
@@ -111,12 +124,14 @@ public class RegistrationFormPage {
         stateCityInput.$(byText(value)).click();
     }
 
+    @Step("Выбираем штат - {state} - и город - {city}")
     public RegistrationFormPage clickAndStateInput(String state, String city) {
         setState(state);
         setCity(city);
         return this;
     }
 
+    @Step("Проверяем появлением финальной таблицы")
     public RegistrationFormPage modalDialogAppear() {
         ModalResultComponent modalResultComponent = new ModalResultComponent();
         modalResultComponent.checkTitle("Thanks for submitting the form");
@@ -124,6 +139,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Проверяем заполнение параметра формы - {value}")
     public RegistrationFormPage outputBodyValueCheck(String name, String value) {
         ModalResultComponent modalResultComponent = new ModalResultComponent();
         modalResultComponent.checkValue(name, value);
@@ -131,6 +147,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Проверяем заполнение хобби - {firstHobby}, {secondHobby} и {thirdHobby}")
     public RegistrationFormPage outputBodyHobbyCheck(String firstHobby, String secondHobby, String thirdHobby) {
         String expectedValue;
         ModalResultComponent modalResultComponent = new ModalResultComponent();
@@ -167,6 +184,7 @@ public class RegistrationFormPage {
         return this;
     }
 
+    @Step("Проверяем валидацию парараметра - {nameAttr}")
     public RegistrationFormPage outputCheckError(String nameAttr, String nameElement, String value) {
         ModalResultComponent modalResultComponent = new ModalResultComponent();
         modalResultComponent.checkError(nameAttr, nameElement, value);

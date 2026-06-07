@@ -63,13 +63,10 @@ public class FillFormTest extends TestBase {
     @DisplayName("Заполнение всех параметров сложной формы")
     void fillAllParamFormTest() {
 
-        step("Открываем страницу регистрации", () ->{
-        registrationFormPage
-                .openPage();
-        });
 
-        step("Заполняем параметры формы", () ->{
         registrationFormPage
+                .openPage()
+
                 .typeFirstName(firstNameFaker)
                 .typeLastName(lastNameFaker)
                 .typeEmail(emailFaker)
@@ -83,16 +80,10 @@ public class FillFormTest extends TestBase {
                 .clickHobbies(secondHobbyRandom)
                 .clickHobbies(thirdHobbyRandom)
                 .clickAndStateInput(stateRandom, cityRandom)
-                .uploadPicture(profilePicRandom);
-        });
+                .uploadPicture(profilePicRandom)
 
-        step("Нажимаем кнопку Submit", () ->{
-        registrationFormPage
-                .submitForm();
-        });
+                .submitForm()
 
-        step("Проверяем, что в финальном окне отображаются введенные данные", () ->{
-        registrationFormPage
                 .modalDialogAppear()
                 .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
                 .outputBodyValueCheck("Student Email" , emailFaker)
@@ -104,7 +95,6 @@ public class FillFormTest extends TestBase {
                 .outputBodyValueCheck("Picture" , profilePicRandom)
                 .outputBodyValueCheck("Address" , currAddressFaker)
                 .outputBodyValueCheck("State and City" , stateRandom + " " + cityRandom);
-        });
     }
 
     @Test
@@ -115,33 +105,22 @@ public class FillFormTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Заполнение обязательных параметров сложной формы")
     void requiredParamFillFormTest() {
-        step("Открываем страницу регистрации", () ->{
         registrationFormPage
-                .openPage();
-    });
+                .openPage()
 
-        step("Заполняем параметры формы", () ->{
-        registrationFormPage
                 .typeFirstName(firstNameFaker)
                 .typeLastName(lastNameFaker)
                 .typeNumber(phoneNumberRandom)
                 .clickCalendar(dayRandom, monthRandom, yearRandom)
-                .clickSex(sexRandom);
-    });
+                .clickSex(sexRandom)
 
-        step("Нажимаем кнопку Submit", () ->{
-        registrationFormPage
-                .submitForm();
-         });
+                .submitForm()
 
-        step("Проверяем, что в финальном окне отображаются введенные данные", () ->{
-        registrationFormPage
                 .modalDialogAppear()
                 .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
                 .outputBodyValueCheck("Gender" , sexRandom)
                 .outputBodyValueCheck("Mobile" , phoneNumberRandom)
                 .outputBodyValueCheck("Date of Birth" , dayRandom + " " + monthRandom + "," + yearRandom);
-         });
     }
 
 }
