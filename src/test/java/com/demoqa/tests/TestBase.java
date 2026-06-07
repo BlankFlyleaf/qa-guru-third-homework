@@ -26,10 +26,21 @@ public class TestBase {
 
     @BeforeAll
     static void testConfig() {
+        String browser = System.getProperty("browser", "chrome");
+        String browserVersion = System.getProperty("browserVersion");
+        String pageLoadStrategy = System.getProperty("pageLoadStrategy", "eager");
+        String browserSize = System.getProperty("browserSize", "1920x1080");
+        String selenoidCredential = System.getProperty("selenoidCredential");
+        String selenoidUrl = System.getProperty("selenoidUrl");
+        String baseUrl = System.getProperty("baseUrl");
+
         step("Задаем настройки для тестов", () ->{
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
+        Configuration.browser = browser;
+        Configuration.browserVersion = browserVersion;
+        Configuration.browserSize = browserSize;
+        Configuration.pageLoadStrategy = pageLoadStrategy;
+        Configuration.baseUrl = baseUrl;
+        Configuration.remote = ("https://" + selenoidCredential + "@" + selenoidUrl);
         //Configuration.holdBrowserOpen = true;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -38,12 +49,6 @@ public class TestBase {
                     "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-
-
-        //Configuration.browser = "chrome";
-        //Configuration.browserVersion = "128.0";
-        //Configuration.browserVersion = "130.0";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         });
     }
 
