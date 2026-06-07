@@ -22,15 +22,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
       - name: Run tests
-        run: ./gradlew clean test \
-         "-Dselenide.remote=http://localhost:4444/wd/hub" \
-         "-DBROWSER=chrome" \
-         "-DBROWSER_VERSION=128.0" \
-         "-DBROWSER_SIZE=1920x1080" \
-         "-DPAGE_LOAD_STRATEGY=eager" \
-         "-DBASE_URL=${{ secrets.BASE_URL }}" \
-         "-DSELENOID_CREDENTIAL=${{ secrets.SELENOID_CREDENTIAL }}" \
-         "-DSELENOID_URL=${{ secrets.SELENOID_URL }}" \
+        run: ./gradlew clean test "-Dselenide.remote=http://localhost:4444/wd/hub" "-DBROWSER=chrome" "-DBROWSER_VERSION=128.0" "-DBROWSER_SIZE=1920x1080" "-DPAGE_LOAD_STRATEGY=eager" "-DBASE_URL=${{ secrets.BASE_URL }}"
       # скачиваем историю тестов
       - uses: actions/checkout@v6
         if: always()
