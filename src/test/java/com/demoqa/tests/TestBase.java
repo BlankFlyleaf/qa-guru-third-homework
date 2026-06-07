@@ -26,13 +26,13 @@ public class TestBase {
 
     @BeforeAll
     static void testConfig() {
-        String browser = System.getProperty("browser", "chrome");
-        String browserVersion = System.getProperty("browserVersion");
-        String pageLoadStrategy = System.getProperty("pageLoadStrategy", "eager");
-        String browserSize = System.getProperty("browserSize", "1920x1080");
-        String selenoidCredential = System.getProperty("selenoidCredential");
-        String selenoidUrl = System.getProperty("selenoidUrl");
-        String baseUrl = System.getProperty("baseUrl");
+        String browser = System.getProperty("BROWSER", "chrome");
+        String browserVersion = System.getProperty("BROWSER_VERSION");
+        String pageLoadStrategy = System.getProperty("PAGE_LOAD_STRATEGY", "eager");
+        String browserSize = System.getProperty("BROWSER_SIZE", "1920x1080");
+        String selenoidCredential = System.getProperty("SELENOID_CREDENTIAL");
+        String selenoidUrl = System.getProperty("SELENOID_URL");
+        String baseUrl = System.getProperty("BASE_URL");
 
         step("Задаем настройки для тестов", () ->{
         Configuration.browser = browser;
