@@ -18,6 +18,7 @@ public class RegistrationFormPage {
     private final SelenideElement uploadPictureInput = $("#uploadPicture");
     private final SelenideElement sexInput = $("#genterWrapper");
     private final SelenideElement subjectInput = $("#subjectsInput");
+    private final SelenideElement subjectClick = $(".subjects-auto-complete__menu");
     private final SelenideElement hobbiesInput = $("#hobbiesWrapper");
     private final SelenideElement stateCityInput = $("#stateCity-wrapper");
     private final SelenideElement formClick = $("#submit");
@@ -92,7 +93,8 @@ public class RegistrationFormPage {
 
     @Step("Выбираем предмет - {value}")
     public RegistrationFormPage enterSubject(String value) {
-        subjectInput.setValue(value).pressEnter();
+        subjectInput.setValue(value);
+        subjectClick.$(byText(value)).click();
 
         return this;
     }

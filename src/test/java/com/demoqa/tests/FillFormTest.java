@@ -29,6 +29,7 @@ public class FillFormTest extends TestBase {
     String profilePicRandom;
     String stateRandom;
     String cityRandom;
+    String notValidPhoneNumber;
 
     @BeforeEach
     void randomVariableGeneration () {
@@ -50,6 +51,7 @@ public class FillFormTest extends TestBase {
         firstHobbyRandom = generateRandomFirstHobby();
         secondHobbyRandom = generateRandomSecondHobby();
         thirdHobbyRandom = generateRandomThirdHobby();
+        notValidPhoneNumber = "1234";
         });
     }
 
@@ -120,6 +122,58 @@ public class FillFormTest extends TestBase {
                 .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
                 .outputBodyValueCheck("Gender" , sexRandom)
                 .outputBodyValueCheck("Mobile" , phoneNumberRandom)
+                .outputBodyValueCheck("Date of Birth" , dayRandom + " " + monthRandom + "," + yearRandom);
+    }
+
+    @Test
+    @Tag("Smoke")
+    @Tag("Regression")
+    @Story("Заполнение сложной формы demo.qa")
+    @Owner("AСhurilov")
+    @Severity(SeverityLevel.MINOR)
+    @DisplayName("Проверка Аллюра - если провалена валидация")
+    void brokenRequiredParamFillFormTest() {
+        registrationFormPage
+                .openPage()
+
+                .typeFirstName(firstNameFaker)
+                .typeLastName(lastNameFaker)
+                .typeNumber(notValidPhoneNumber)
+                .clickCalendar(dayRandom, monthRandom, yearRandom)
+                .clickSex(sexRandom)
+
+                .submitForm()
+
+                .modalDialogAppear()
+                .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
+                .outputBodyValueCheck("Gender" , sexRandom)
+                .outputBodyValueCheck("Mobile" , phoneNumberRandom)
+                .outputBodyValueCheck("Date of Birth" , dayRandom + " " + monthRandom + "," + yearRandom);
+    }
+
+    @Test
+    @Tag("Smoke")
+    @Tag("Regression")
+    @Story("Заполнение сложной формы demo.qa")
+    @Owner("AСhurilov")
+    @Severity(SeverityLevel.MINOR)
+    @DisplayName("Проверка Аллюра, если сделана неправильная проверка")
+    void brokenRequiredParamFillFormTestVerTwo() {
+        registrationFormPage
+                .openPage()
+
+                .typeFirstName(firstNameFaker)
+                .typeLastName(lastNameFaker)
+                .typeNumber(phoneNumberRandom)
+                .clickCalendar(dayRandom, monthRandom, yearRandom)
+                .clickSex(sexRandom)
+
+                .submitForm()
+
+                .modalDialogAppear()
+                .outputBodyValueCheck("Student Name", firstNameFaker + " " + lastNameFaker)
+                .outputBodyValueCheck("Gender" , sexRandom)
+                .outputBodyValueCheck("Mobile" , notValidPhoneNumber)
                 .outputBodyValueCheck("Date of Birth" , dayRandom + " " + monthRandom + "," + yearRandom);
     }
 
