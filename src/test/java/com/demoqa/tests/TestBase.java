@@ -6,23 +6,21 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demoqa.helpers.Attach;
 import com.demoqa.pages.RegistrationFormPage;
 import com.demoqa.pages.SimpleFormPage;
-import com.github.javafaker.Faker;
+import com.demoqa.testdata.TestData;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.Locale;
 import java.util.Map;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 public class TestBase {
-
-    Faker fakerEn = new Faker(new Locale("en"));
-    Faker fakerRu = new Faker(new Locale("ru"));
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     SimpleFormPage simpleFormPage = new SimpleFormPage();
+    TestData testData = new TestData();
 
     @BeforeAll
     static void testConfig() {
@@ -41,7 +39,6 @@ public class TestBase {
         Configuration.pageLoadStrategy = pageLoadStrategy;
         Configuration.baseUrl = baseUrl;
         Configuration.remote = ("https://" + selenoidCredential + "@" + selenoidUrl);
-        //Configuration.holdBrowserOpen = true;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -57,6 +54,12 @@ public class TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
+    @BeforeEach
+    void generateRandomVariableForTests() {
+        step("Генерируем случайные значения для заполнения параметров", () -> testData
+                .randomVariableGeneration());
+    }
+
     @AfterEach
     void tearDown() {
         step("Добавляем аттачи", () ->{
@@ -64,7 +67,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-//        Attach.attachAsText("Some file", "Some content");
         });
         step("Завершаем тест", Selenide::closeWebDriver);
     }

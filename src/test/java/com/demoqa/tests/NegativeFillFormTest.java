@@ -4,30 +4,11 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.*;
-
-import static com.demoqa.utils.RandomUtils.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 public class NegativeFillFormTest extends TestBase {
-
-    String firstNameFaker;
-    String lastNameFaker;
-    String phoneNumberRandom;
-    String dayRandom;
-    String monthRandom;
-    String yearRandom;
-    String sexRandom;
-
-    @BeforeEach
-    void randomVariableGeneration () {
-        firstNameFaker = fakerRu.name().firstName();
-        lastNameFaker = fakerRu.name().lastName();
-        phoneNumberRandom = getRandomPhone();
-        sexRandom = getRandomSex();
-        dayRandom = getRandomIntToString(1, 30);
-        yearRandom = getRandomIntToString(1980, 2025);
-        monthRandom = getRandomMonth();
-    }
 
     @Test
     @Tag("Negative")
@@ -40,10 +21,10 @@ public class NegativeFillFormTest extends TestBase {
         registrationFormPage
                 .openPage()
 
-                .typeLastName(lastNameFaker)
-                .typeNumber(phoneNumberRandom)
-                .clickCalendar(dayRandom, monthRandom, yearRandom)
-                .clickSex(sexRandom)
+                .typeLastName(testData.lastNameFaker)
+                .typeNumber(testData.phoneNumberRandom)
+                .clickCalendar(testData.dayRandom, testData.monthRandom, testData.yearRandom)
+                .clickSex(testData.sexRandom)
 
                 .submitForm()
 
@@ -61,10 +42,10 @@ public class NegativeFillFormTest extends TestBase {
         registrationFormPage
                 .openPage()
 
-                .typeFirstName(firstNameFaker)
-                .typeNumber(phoneNumberRandom)
-                .clickCalendar(dayRandom, monthRandom, yearRandom)
-                .clickSex(sexRandom)
+                .typeFirstName(testData.firstNameFaker)
+                .typeNumber(testData.phoneNumberRandom)
+                .clickCalendar(testData.dayRandom, testData.monthRandom, testData.yearRandom)
+                .clickSex(testData.sexRandom)
 
                 .submitForm()
 
@@ -82,10 +63,10 @@ public class NegativeFillFormTest extends TestBase {
         registrationFormPage
                 .openPage()
 
-                .typeFirstName(firstNameFaker)
-                .typeLastName(lastNameFaker)
-                .clickCalendar(dayRandom, monthRandom, yearRandom)
-                .clickSex(sexRandom)
+                .typeFirstName(testData.firstNameFaker)
+                .typeLastName(testData.lastNameFaker)
+                .clickCalendar(testData.dayRandom, testData.monthRandom, testData.yearRandom)
+                .clickSex(testData.sexRandom)
 
                 .submitForm()
 

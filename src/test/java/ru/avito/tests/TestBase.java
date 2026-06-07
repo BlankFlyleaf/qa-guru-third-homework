@@ -13,7 +13,5 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://www.avito.ru/";
         Configuration.pageLoadStrategy = "eager";
-        //Configuration.holdBrowserOpen = true;
-
     }
 }

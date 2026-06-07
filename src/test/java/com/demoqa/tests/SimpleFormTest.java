@@ -1,29 +1,14 @@
 package com.demoqa.tests;
 
-import io.qameta.allure.*;
-import org.junit.jupiter.api.*;
-
-import static com.demoqa.utils.RandomUtils.*;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 public class SimpleFormTest extends TestBase {
-
-    String firstNameFaker;
-    String lastNameFaker;
-    String emailFaker;
-    String corruptedEmailRandom;
-    String currAddressFaker;
-    String permAddressFaker;
-
-    @BeforeEach
-    @Step("Генерируем случайные данные")
-    void randomVariableGeneration () {
-        firstNameFaker = fakerRu.name().firstName();
-        lastNameFaker = fakerRu.name().lastName();
-        emailFaker = fakerEn.internet().emailAddress();
-        corruptedEmailRandom = getRandomIntToString(1111, 9999);
-        currAddressFaker = fakerRu.address().fullAddress();
-        permAddressFaker = fakerRu.address().fullAddress();
-    }
 
     @Test
     @Tag("Smoke")
@@ -36,17 +21,17 @@ public class SimpleFormTest extends TestBase {
         simpleFormPage
                 .openPage()
 
-                .typeUserName(firstNameFaker + " " + lastNameFaker)
-                .typeUserEmail(emailFaker)
-                .typeUserCurrentAddress(currAddressFaker)
-                .typeUserPermanentAddress(permAddressFaker)
+                .typeUserName(testData.firstNameFaker + " " + testData.lastNameFaker)
+                .typeUserEmail(testData.emailFaker)
+                .typeUserCurrentAddress(testData.currAddressFaker)
+                .typeUserPermanentAddress(testData.permAddressFaker)
 
                 .submitForm()
 
-                .outputCheckValue(firstNameFaker + " " + lastNameFaker)
-                .outputCheckValue(emailFaker)
-                .outputCheckValue(currAddressFaker)
-                .outputCheckValue(permAddressFaker);
+                .outputCheckValue(testData.firstNameFaker + " " + testData.lastNameFaker)
+                .outputCheckValue(testData.emailFaker)
+                .outputCheckValue(testData.currAddressFaker)
+                .outputCheckValue(testData.permAddressFaker);
     }
 
     @Test
@@ -61,10 +46,10 @@ public class SimpleFormTest extends TestBase {
         simpleFormPage
                 .openPage()
 
-                .typeUserName(firstNameFaker + " " + lastNameFaker)
-                .typeUserEmail(corruptedEmailRandom)
-                .typeUserCurrentAddress(currAddressFaker)
-                .typeUserPermanentAddress(permAddressFaker)
+                .typeUserName(testData.firstNameFaker + " " + testData.lastNameFaker)
+                .typeUserEmail(testData.corruptedEmailRandom)
+                .typeUserCurrentAddress(testData.currAddressFaker)
+                .typeUserPermanentAddress(testData.permAddressFaker)
 
                 .submitForm()
 
