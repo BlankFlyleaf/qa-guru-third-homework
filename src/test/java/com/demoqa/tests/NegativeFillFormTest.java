@@ -1,6 +1,5 @@
 package com.demoqa.tests;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -30,18 +29,12 @@ public class NegativeFillFormTest extends TestBase {
         monthRandom = getRandomMonth();
     }
 
-    @AfterEach
-    void tearDown() {
-        Selenide.closeWebDriver();
-    }
-
     @Test
     @Tag("Negative")
     @Tag("Regression")
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
-    @Disabled("Для занятия 10")
     @DisplayName("Проверка валидации параметра 'Имя' сложной формы")
     void withoutFirstNameTest() {
         registrationFormPage
@@ -63,7 +56,6 @@ public class NegativeFillFormTest extends TestBase {
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
-    @Disabled("Для занятия 10")
     @DisplayName("Проверка валидации параметра 'Фамилия' сложной формы")
     void withoutSecondNameTest() {
         registrationFormPage
@@ -85,7 +77,6 @@ public class NegativeFillFormTest extends TestBase {
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
-    @Disabled("Для занятия 10")
     @DisplayName("Проверка валидации параметра 'Номер телефон' сложной формы")
     void withoutPhoneNumberTest() {
         registrationFormPage

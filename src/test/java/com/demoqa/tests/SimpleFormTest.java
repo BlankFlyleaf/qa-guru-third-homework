@@ -1,6 +1,5 @@
 package com.demoqa.tests;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
@@ -26,19 +25,12 @@ public class SimpleFormTest extends TestBase {
         permAddressFaker = fakerRu.address().fullAddress();
     }
 
-    @AfterEach
-    @Step("Завершаем тест")
-    void tearDown() {
-        Selenide.closeWebDriver();
-    }
-
     @Test
     @Tag("Smoke")
     @Tag("Regression")
     @Story("Заполнение простой формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.BLOCKER)
-    @Disabled("Для занятия 10")
     @DisplayName("Заполнение всех параметров простой формы")
     void fillAllParamSimpleFormTest() {
         simpleFormPage
@@ -64,7 +56,6 @@ public class SimpleFormTest extends TestBase {
     @Story("Заполнение простой формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.CRITICAL)
-    @Disabled("Для занятия 10")
     @DisplayName("Проверка валидации параметра 'email' простой формы")
     void withWrongEmailSimpleTest() {
         simpleFormPage

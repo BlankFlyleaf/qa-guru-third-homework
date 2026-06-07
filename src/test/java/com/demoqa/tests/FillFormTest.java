@@ -1,6 +1,5 @@
 package com.demoqa.tests;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -54,10 +53,6 @@ public class FillFormTest extends TestBase {
         });
     }
 
-    @AfterEach
-    void tearDown() {
-        step("Завершаем тест", Selenide::closeWebDriver);
-    }
 
     @Test
     @Tag("Smoke")
@@ -65,7 +60,6 @@ public class FillFormTest extends TestBase {
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.BLOCKER)
-    @Disabled("Для занятия 10")
     @DisplayName("Заполнение всех параметров сложной формы")
     void fillAllParamFormTest() {
 
@@ -119,7 +113,6 @@ public class FillFormTest extends TestBase {
     @Story("Заполнение сложной формы demo.qa")
     @Owner("AСhurilov")
     @Severity(SeverityLevel.BLOCKER)
-    @Disabled("Для занятия 10")
     @DisplayName("Заполнение обязательных параметров сложной формы")
     void requiredParamFillFormTest() {
         step("Открываем страницу регистрации", () ->{
