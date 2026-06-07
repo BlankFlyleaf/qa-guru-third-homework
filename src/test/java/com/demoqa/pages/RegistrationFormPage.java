@@ -104,7 +104,7 @@ public class RegistrationFormPage {
         return this;
     }
 
-    @Step("Заполняем дату рождения - {value}")
+    @Step("Заполняем дату рождения - {day} {month} {year}")
     public RegistrationFormPage clickCalendar(String day, String month, String year) {
         calendarClick.click();
 
