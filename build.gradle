@@ -46,6 +46,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+
     systemProperties(System.getProperties())
     def tags = System.getProperty('includeTags')
     if (tags) {
@@ -53,7 +54,7 @@ test {
     }
 }
 
-tasks.withType(Test) {
+    tasks.withType(Test) {
     useJUnitPlatform()
 
     testLogging {
@@ -62,4 +63,5 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
 }
