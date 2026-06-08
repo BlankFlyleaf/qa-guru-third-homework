@@ -1,15 +1,14 @@
 {
   "base": {
     "logo": "",
-    "project": "qaGuruHomework",
-    "environment": "qaGuru",
+    "project": "${JOB_BASE_NAME}",
+    "environment": "env",
     "comment": "",
-    "reportLink": "https://jenkins.autotests.cloud/view/blankFlyleaf_jobs/job/C41-blankflyleaf-unit12/",
+    "reportLink": "${BUILD_URL}",
     "language": "en",
-    "allureFolder": "build/reports/allure-report/allureReport/",
+    "allureFolder": "allure-report/",
     "enableChart": true,
-    "enableSuitesPublishing": true,
-    "customData": {}
+    "enableSuitesPublishing": true
   },
   "telegram": {
     "token": "7801689121:AAEUXfa_ESI88fzNq-b_NVqbik62z6LWozU",
@@ -17,11 +16,5 @@
     "topic": "",
     "replyTo": "",
     "templatePath": "/templates/telegram.ftl"
-  },
-  "proxy": {
-    "host": "",
-    "port": 0,
-    "username": "",
-    "password": ""
   }
 }
