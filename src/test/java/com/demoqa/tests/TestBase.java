@@ -40,12 +40,16 @@ public class TestBase {
         Configuration.baseUrl = baseUrl;
         Configuration.remote = ("https://" + selenoidCredential + "@" + selenoidUrl);
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                 "enableVNC", true,
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
                     "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
+            ));
+
+            if ("firefox".equals(browser)) {
+                capabilities.setCapability("webSocketUrl", false);
+            }
+            Configuration.browserCapabilities = capabilities;
         });
     }
 
